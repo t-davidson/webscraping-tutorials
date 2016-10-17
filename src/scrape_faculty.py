@@ -10,7 +10,7 @@ def getSoup(url):
     Then sleeps for a short time.
     Returns: A BeautifulSoup object."""
     html = requests.get(url)
-    soup = BS(html.text, "html.parser")
+    soup = BS(html.content, "html.parser")
     sleep(0.25)
     return soup
 
