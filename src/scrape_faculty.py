@@ -1,10 +1,12 @@
 import requests
 import string
 from bs4 import BeautifulSoup as BS
+from time import sleep
 
 def getSoup(url):
     html = requests.get(url)
     soup = BS(html.text, "html.parser")
+    sleep(0.25)
     return soup
 
 def getFacultyPages(base_url):
