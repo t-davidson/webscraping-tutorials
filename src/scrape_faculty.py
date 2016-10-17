@@ -2,6 +2,7 @@ import requests
 import string
 from bs4 import BeautifulSoup as BS
 from time import sleep
+import pandas as pd
 
 def getSoup(url):
     """Input: A valid url.
@@ -53,8 +54,9 @@ def getTitleAndEducation(info):
     title_and_education = titles.split('PhD')
     title = title_and_education[0]
     title = ''.join(x for x in title if x not in string.punctuation)
+    title = title.rstrip()
     education = 'PhD'+title_and_education[1]
-    education = education.split('Curriculum')[0]
+    education = education.split('Curriculum')[0].rstrip()
     return title, education
 
 def getFacultyName(soup):
@@ -81,3 +83,5 @@ if __name__ == '__main__':
             title, education = None, None
         faculty_info[name] = {'title':title, 'education':education}
     print(faculty_info)
+    df = pd.DataFrame.from_dict(faculty_info, orient='index')
+    df.to_csv('../data/facultyinfo2.csv',encoding='utf-8')
