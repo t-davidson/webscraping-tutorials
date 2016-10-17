@@ -12,8 +12,7 @@ You will also need to have [Git](https://git-scm.com/book/en/v2/Getting-Started-
 
 You can also consult our [wiki](https://github.com/socdyn/wiki/blob/master/vesta/get_started_with_python.md) for advice on setting this up:
 
-When you have it installed please install the following packages using `pip3` (if you never installed Python2 then you might be able to just use `pip`). If you are using Anaconda then please try to install the packages
-with `conda` first and if it doesn't work use `pip3`.
+When you have it installed please install the following packages using `pip3`, e.g `pip3 install jupyter`(if you never installed Python2 then you might be able to just use `pip`). If you are using Anaconda then please try to install the packageswith `conda` first and if it doesn't work use `pip3`.
 
 ```
 jupyter
