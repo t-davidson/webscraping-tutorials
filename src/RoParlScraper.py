@@ -30,14 +30,14 @@ def Scarpe():
 
         #get date-time you retrieved document
         retrieved = time.time()
-    
+
         #dump into dictionary
         data = {'number':x, 'html':html, 'retrieved':retrieved, 'url':url}
 
         #dump in file, line-delimited json
-        out_file_name = str(x) + '.txt'
+        out_file_name = '../data/'+str(x) + '.txt'
         with codecs.open(out_file_name, 'w', encoding='UTF8') as outfile:
-            outfile.write(json.dumps(data))    
+            outfile.write(json.dumps(data))
             outfile.write('\n')
 
         #tells me where I am
@@ -45,14 +45,14 @@ def Scarpe():
 
 def ExtractSpeech():
 
-    """ Extracts the speech and vital information from the html. 
+    """ Extracts the speech and vital information from the html.
 
     PreC: Reads line-delimited json .txt files in current folder. """
 
     #loop over html files in directory, in natural order
     for FILE in natsort.natsorted(os.listdir('.')):
 
-        #tell me where I am                  
+        #tell me where I am
         print FILE
 
         if FILE.endswith('.txt'):
@@ -60,8 +60,8 @@ def ExtractSpeech():
                 for line in in_file:
                     dictio = json.loads(line)
                     #take out HTML
-                    html = dictio['html'] 
-        
+                    html = dictio['html']
+
                     #this is how website indexes beginning and end of
                     #speeches. Extract speeches and get date of debate
                     speeches = re.findall(r'<!-- START=(.*?)<!-- END -->', html, re.DOTALL)
@@ -69,13 +69,13 @@ def ExtractSpeech():
                     #title of debate
                     if len(speeches) > 0:
                         date = re.findall(r'<title>(.*?)</title>', html, re.DOTALL)[0]
-                        #joint sessions of lower & upper houses don't 
+                        #joint sessions of lower & upper houses don't
                         #give the date, for some strange reason
                         if 'din ' in date:
                             date = date.partition('din ')[2]
                             date = re.sub(r'\s+', ' ', date)
-                            date = re.split(' ', date)  
-                            date = date[2] + '-' + date[1] + '-' + date[0] 
+                            date = re.split(' ', date)
+                            date = date[2] + '-' + date[1] + '-' + date[0]
                             #dump in files
                             out_file_name = 'debate'+ '_' + str(date) + '.txt'
 
@@ -95,9 +95,8 @@ def ExtractSpeech():
                                 soup = BeautifulSoup(text, 'lxml')
                                 speech = soup.get_text()
                                 outfile.write(speech)
-          
+
 
 if __name__ == '__main__':
-
-    ExtractSpeech()
-
+    Scarpe()
+    #ExtractSpeech()
