@@ -12,6 +12,7 @@ import os
 import re
 import natsort
 from bs4 import BeautifulSoup
+import glob
 
 def Scarpe():
     """ Scrapes the html of transcripts of Lower House sessions (LH only or joint meetings with Senate). """
@@ -50,7 +51,8 @@ def ExtractSpeech():
     PreC: Reads line-delimited json .txt files in current folder. """
 
     #loop over html files in directory, in natural order
-    for FILE in natsort.natsorted(os.listdir('.')):
+    #for FILE in natsort.natsorted(os.listdir('../data')):
+    for FILE in natsort.natsorted(glob.glob("../data/*.txt")):
 
         #tell me where I am
         print FILE
@@ -98,5 +100,7 @@ def ExtractSpeech():
 
 
 if __name__ == '__main__':
-    Scarpe()
-    #ExtractSpeech()
+    #Scarpe()
+    ExtractSpeech()
+
+#instead of codecs try using io package -- 'io.open'
