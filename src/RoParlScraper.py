@@ -17,7 +17,7 @@ import glob
 def Scarpe():
     """ Scrapes the html of transcripts of Lower House sessions (LH only or joint meetings with Senate). """
 
-    for x in range(1,7661):
+    for x in range(1,10):
         url = 'http://www.cdep.ro/pls/steno/steno2015.stenograma?ids=' + str(x) + '&idl=1'
 
         #for transparent research, tell sysadmin who I am
@@ -84,7 +84,7 @@ def ExtractSpeech():
                         else:
                             date = 'Joint Session, raw file ' + str(FILE)
                             #dump in files
-                            out_file_name = 'debate'+ '_' + str(date)
+                            out_file_name = '../data/debate'+ '_' + str(date)
 
 
                         with codecs.open(out_file_name, 'w', encoding='UTF8') as outfile:
@@ -100,7 +100,7 @@ def ExtractSpeech():
 
 
 if __name__ == '__main__':
-    #Scarpe()
+    Scarpe()
     ExtractSpeech()
 
 #instead of codecs try using io package -- 'io.open'
