@@ -79,7 +79,7 @@ def ExtractSpeech():
                             date = re.split(' ', date)
                             date = date[2] + '-' + date[1] + '-' + date[0]
                             #dump in files
-                            out_file_name = 'debate'+ '_' + str(date) + '.txt'
+                            out_file_name = '../data/debate'+ '_' + str(date) + '.txt'
 
                         else:
                             date = 'Joint Session, raw file ' + str(FILE)
