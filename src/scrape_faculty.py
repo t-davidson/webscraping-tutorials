@@ -12,7 +12,7 @@ def getSoup(url):
     Returns: A BeautifulSoup object."""
     html = requests.get(url)
     soup = BS(html.content, "html.parser")
-    sleep(0.25)
+    sleep(6)
     return soup
 
 def getFacultyPages(base_url):
