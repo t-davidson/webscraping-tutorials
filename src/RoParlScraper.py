@@ -24,7 +24,7 @@ def Scarpe():
         headers = {'user-agent' : 'Mozilla 45.0 (Linux Mint 17); Radu Parvulescu/Cornell University/rap348@cornell.edu'}
 
         #stagger requests so we don't overload target site
-        time.sleep(random.uniform(1,3))
+        time.sleep(random.uniform(0.1,1))
 
         #get html text and transmit header
         html = requests.get(url, headers=headers).text
