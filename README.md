@@ -6,7 +6,7 @@ websites.
 
 # Set-up
 
-You will need to have Python 3.5 installed. As a lab we are moving onto the new version of Python and the tutorials will not work with Python 2. You can download it [here] (https://www.python.org/downloads/). You can also download it via [Anaconda](https://www.continuum.io/downloads), which will include many of the packages in the distribution.
+You will need to have Python 3.5 installed. As a lab we are moving onto the new version of Python and the tutorials will not work with Python 2. You can download it [here](https://www.python.org/downloads/). You can also download it via [Anaconda](https://www.continuum.io/downloads), which will include many of the packages in the distribution.
 
 You will also need to have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.  You should make a Github account if you haven’t already.
 
