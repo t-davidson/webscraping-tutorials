@@ -1,5 +1,5 @@
 #Started April 18, 2016, last edit May 9, 2016
-#CamDep-Stenograme.py
+#Radu Parvulescu
 
 """ Scrapes and stores html of transcripts from Romanian Chamber of Deputies. """
 
